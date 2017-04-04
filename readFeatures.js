@@ -11,8 +11,8 @@ function reader(fileList) {
                });
 
             rl.on('line', function (line) {
-                if (line.match(@jira)){
-
+                if (line.match(/@jira/g)){
+                        
                 }
                           console.log('Line from file:', line);
             });
