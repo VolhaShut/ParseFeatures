@@ -13,3 +13,11 @@ gulp.task('read:features', ()=>{
 gulp.task('post:jira', ()=>{
     require('./rest_request');
 });
+
+gulp.task('create-session', ()=>{
+    require('./rest-client');
+});
+
+gulp.task('delete-session', ()=>{
+    require('./rest-delete-session');
+});
