@@ -6,7 +6,7 @@ const options = {
     uri: 'https://jira.wolterskluwer.io/jira/rest/auth/1/session',
     headers: {
         // Set the cookie from the session information
-        cookie: "JSESSIONID=2347FC3D073FD6B457A09044C5BB15C9",
+        cookie: cookie_session.session,
         "Content-Type": "application/json"
     },
     // headers: {

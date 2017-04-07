@@ -6,6 +6,7 @@
     "gulp-util": "^3.0.7",
     "request":"^2.81.0",
     "request-promise": "^4.2.0",
-    "node-rest-client": "3.1.0"
+    "node-rest-client": "3.1.0",
+    "gherkin":"4.1.1"
   }
 }
