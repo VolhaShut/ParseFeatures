@@ -9,7 +9,7 @@ const options = {
     },
     headers: {
         // Set the cookie from the session information
-        cookie: "JSESSIONID=C4947D4B1FE915E261E9125E9060910B",
+        cookie: cookie_session.session,
         "Content-Type": "application/json"
     },
     // headers: {
