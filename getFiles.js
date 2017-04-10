@@ -15,7 +15,7 @@ function finder(dirname) {
                 }
             });
         }else {
-            console.log('Folder'+dirname+'does not exist');
+            console.log('Folder '+dirname+' does not exist');
         }
     }
     dirTravel(dirname);
