@@ -1,4 +1,5 @@
 const fs=require('fs');
+const path=require('path');
 
 function finder(dirname) {
     let fileList = [];
@@ -7,7 +8,7 @@ function finder(dirname) {
         if (fs.existsSync(dirname)) {
             dirname = fs.realpathSync(dirname);
             fs.readdirSync(dirname).forEach(file => {
-                file = dirname + '\\' + file;
+                file = path.normalize(dirname + '/' + file);
                 if (fs.statSync(file).isDirectory()) {
                     dirTravel(file);
                 } else {

@@ -1,1 +1,196 @@
-undefined
+[
+    {
+        "title": " Content",
+        "tests": [
+            {
+                "tags": [],
+                "title": "",
+                "type": "",
+                "scenarioCount": "",
+                "countOfCharacters": "",
+                "steps": [],
+                "examples": []
+            },
+            {
+                "tags": [
+                    "  @component(Search_Results)",
+                    "  @component(Citation_Search)",
+                    "  @noAutoLogout",
+                    "  @jira(LCTS-864)",
+                    "  @T1"
+                ],
+                "title": " Citation match should show up on appropriate search query",
+                "type": "outline",
+                "scenarioCount": "",
+                "countOfCharacters": "",
+                "steps": [
+                    "    Given I am on \"Home\" page",
+                    "    When I open \"<practiceArea>\" practice area",
+                    "      And I perform a search of \"<searchQuery>\"",
+                    "    Then I should be on \"Results\" page",
+                    "      And I should see \"CITATION MATCH\" text"
+                ],
+                "examples": []
+            },
+            {
+                "tags": [
+                    "  @component(Citation_Search)",
+                    "  @T1",
+                    "  @jira(LCTS-616)",
+                    "  @issue(v10EBF)"
+                ],
+                "title": " Re-execute global citation search from Session Navigator",
+                "type": "outline",
+                "scenarioCount": "",
+                "countOfCharacters": "",
+                "steps": [
+                    "    Given I am on \"Home\" page",
+                    "    When I click \"Session Navigator Tab\""
+                ],
+                "examples": []
+            },
+            {
+                "tags": [
+                    "  @LB_smoke",
+                    "  @component(Document_Info)",
+                    "  @jira(CU-16998)",
+                    "  @jama(CH-TC-4025)"
+                ],
+                "title": " Verify TOC links (general behaviour)",
+                "type": "single",
+                "scenarioCount": "",
+                "countOfCharacters": "",
+                "steps": [
+                    "    Given I am on \"Home\" page",
+                    "    When I click \"Session Navigator\"",
+                    "      And I click \"Tax - Federal\" at \"All Items\"",
+                    "    Then I should be on \"home/TaxFederal\" page",
+                    "      And I perform a search of \"'Federal Tax Regulations'\"",
+                    "    Then I should be on \"Results\" page",
+                    "    When I click at the \"1st\" element of \"Documents List\"",
+                    "      And I wait \"3000\" ms",
+                    "      And I switch to \"1\" browser tab",
+                    "    Then I should be on \"Read\" page",
+                    "      And I wait until read page is fully loaded",
+                    "      And I wait until \"Widget Document Contents Icon\" is visible",
+                    "    When I click \"Widget Document Contents Icon\"",
+                    "    Then I should see \"Contents Tab\"",
+                    "      And I should see \"Widget Document Contents Icon Active\"",
+                    "      And I should see \"§1.0-1, Internal Revenue Code of 1954 and regulations\" in \"Highlighted Node\"",
+                    "      And I should see \"Internal Revenue Code of 1954 and regulations\" in \"Active Document On Read View\"",
+                    "      And Text of the \"1st\" element of \"Content Nodes Links\" should equal \"§1.0-1, Internal Revenue Code of 1954 and regulations\"",
+                    "    When I click at the \"1st\" element of \"Table of Content Top Node Expand Buttons\"",
+                    "    Then Number of \"Table of Content Nodes\" elements should equal \"2\"",
+                    "      And I should see \"Final and Temporary Regulations\" in \"Table of Content Nodes\"",
+                    "      And I should see \"Proposed Regulations\" in \"Table of Content Nodes\"",
+                    "      And I should see \"Final and Temporary Regulations\" in \"Highlighted Node\"",
+                    "    When I hover \"2nd\" element of \"Nodes\"",
+                    "      And I wait \"100\" ms",
+                    "      And I click at the \"2nd\" element of \"Nodes\"",
+                    "      And I click on \"Table of Content Nodes\" element which contains \"COMPUTATION OF TAXABLE INCOME\"",
+                    "    Then I should see \"§1.61-6, Gains derived from dealings in property.\" in \"Highlighted Node\"",
+                    "      And I should see \"Gains derived from dealings in property\" in \"Active Document On Read View\"",
+                    "      And Text of the \"1st\" element of \"Content Nodes Links\" should equal \"§1.61-6, Gains derived from dealings in property.\""
+                ],
+                "examples": []
+            }
+        ]
+    },
+    {
+        "title": " Content",
+        "tests": [
+            {
+                "tags": [],
+                "title": "",
+                "type": "",
+                "scenarioCount": "",
+                "countOfCharacters": "",
+                "steps": [],
+                "examples": []
+            },
+            {
+                "tags": [
+                    "  @component(Search_Results)",
+                    "  @component(Citation_Search)",
+                    "  @noAutoLogout",
+                    "  @jira(LCTS-864)",
+                    "  @T1"
+                ],
+                "title": " Citation match should show up on appropriate search query",
+                "type": "outline",
+                "scenarioCount": "",
+                "countOfCharacters": "",
+                "steps": [
+                    "    Given I am on \"Home\" page",
+                    "    When I open \"<practiceArea>\" practice area",
+                    "      And I perform a search of \"<searchQuery>\"",
+                    "    Then I should be on \"Results\" page",
+                    "      And I should see \"CITATION MATCH\" text"
+                ],
+                "examples": []
+            },
+            {
+                "tags": [
+                    "  @component(Citation_Search)",
+                    "  @T1",
+                    "  @jira(LCTS-616)",
+                    "  @issue(v10EBF)"
+                ],
+                "title": " Re-execute global citation search from Session Navigator",
+                "type": "outline",
+                "scenarioCount": "",
+                "countOfCharacters": "",
+                "steps": [
+                    "    Given I am on \"Home\" page",
+                    "    When I click \"Session Navigator Tab\""
+                ],
+                "examples": []
+            },
+            {
+                "tags": [
+                    "  @LB_smoke",
+                    "  @component(Document_Info)",
+                    "  @jira(CU-16998)",
+                    "  @jama(CH-TC-4025)"
+                ],
+                "title": " Verify TOC links (general behaviour)",
+                "type": "single",
+                "scenarioCount": "",
+                "countOfCharacters": "",
+                "steps": [
+                    "    Given I am on \"Home\" page",
+                    "    When I click \"Session Navigator\"",
+                    "      And I click \"Tax - Federal\" at \"All Items\"",
+                    "    Then I should be on \"home/TaxFederal\" page",
+                    "      And I perform a search of \"'Federal Tax Regulations'\"",
+                    "    Then I should be on \"Results\" page",
+                    "    When I click at the \"1st\" element of \"Documents List\"",
+                    "      And I wait \"3000\" ms",
+                    "      And I switch to \"1\" browser tab",
+                    "    Then I should be on \"Read\" page",
+                    "      And I wait until read page is fully loaded",
+                    "      And I wait until \"Widget Document Contents Icon\" is visible",
+                    "    When I click \"Widget Document Contents Icon\"",
+                    "    Then I should see \"Contents Tab\"",
+                    "      And I should see \"Widget Document Contents Icon Active\"",
+                    "      And I should see \"§1.0-1, Internal Revenue Code of 1954 and regulations\" in \"Highlighted Node\"",
+                    "      And I should see \"Internal Revenue Code of 1954 and regulations\" in \"Active Document On Read View\"",
+                    "      And Text of the \"1st\" element of \"Content Nodes Links\" should equal \"§1.0-1, Internal Revenue Code of 1954 and regulations\"",
+                    "    When I click at the \"1st\" element of \"Table of Content Top Node Expand Buttons\"",
+                    "    Then Number of \"Table of Content Nodes\" elements should equal \"2\"",
+                    "      And I should see \"Final and Temporary Regulations\" in \"Table of Content Nodes\"",
+                    "      And I should see \"Proposed Regulations\" in \"Table of Content Nodes\"",
+                    "      And I should see \"Final and Temporary Regulations\" in \"Highlighted Node\"",
+                    "    When I hover \"2nd\" element of \"Nodes\"",
+                    "      And I wait \"100\" ms",
+                    "      And I click at the \"2nd\" element of \"Nodes\"",
+                    "      And I click on \"Table of Content Nodes\" element which contains \"COMPUTATION OF TAXABLE INCOME\"",
+                    "    Then I should see \"§1.61-6, Gains derived from dealings in property.\" in \"Highlighted Node\"",
+                    "      And I should see \"Gains derived from dealings in property\" in \"Active Document On Read View\"",
+                    "      And Text of the \"1st\" element of \"Content Nodes Links\" should equal \"§1.61-6, Gains derived from dealings in property.\""
+                ],
+                "examples": []
+            }
+        ]
+    }
+]

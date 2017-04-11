@@ -2,11 +2,7 @@ const fs=require('fs');
 const readline = require('readline');
 
 function reader(fileList) {
-    //let scenarioList=[];
-    //let scenario;
-    let features={
-        "feature":[]
-    };
+    let features=[];
     let feature={
         "title":"",
         "tests": []
@@ -25,22 +21,36 @@ function reader(fileList) {
         "steps":steps,
         "examples":examples
     }
-
+    let promises=[];
+    let title;
+    let tests=[];
+    let i=0;
+//     fileList=['/home/olga/Projects/ParseFeatures/test/citationSearch.feature',
+//   '/home/olga/Projects/ParseFeatures/test/content.feature'];
+    console.log(fileList);
+    let rl=[];
+    
     fileList.forEach(file=>{
+        
         if (file.match(/.feature$/g)){
-            let rl = readline.createInterface({
+        promises.push(new Promise (function (resolve){
+            rl[i] = readline.createInterface({
                 input: fs.createReadStream(file)
                });
 
-            rl.on('line',  (line) => {
+            rl[i].on('line',  (line) => {
                 if (line.match(/^Feature:/g)){
-                        //features.feature.push({feature.title=});
-                        feature.title=line.replace(/^Feature:/ig,'');
+                        console.log(file);                  
+                        title=line.replace(/^Feature:/ig,'');
+                        features[i]={"title":title, "tests":tests}; 
+                        //i++;
+                        console.log(title);
+                        
                 }
                 if (line.match(/^\s+?@/g)){
                         if (testChecker===false) {
                             testChecker=true;
-                            feature.tests.push(test);
+                            tests.push(test);
                             makeTestEmpty();
                             test.tags.push(line);
                         }else {
@@ -49,34 +59,35 @@ function reader(fileList) {
                 }
                 if (line.match(/^\s+?Scenario/g)){
                     testChecker=false;
-                    if (line.match(/^\s+?Scenario Outline:/g)){
+                    if (line.match(/^\s+?Scenario Outline:/ig)){
                         test.title=line.replace(/^\s+?Scenario Outline:/ig,'');
                         test.type='outline';
-                    }
+                    } else {
                     test.title=line.replace(/^\s+?Scenario:/ig,'');
                         test.type='single';
+                    }
                     
                 }
                 if (line.match(/^\s+?And|When|Given|Then/g)){
                     steps.push(line);
-                }
-                
+                }  
             });
-            rl.on('close', ()=>{
-                //console.log(feature);
-                features.feature.push(feature);
-                feature={
-                    "title":"",
-                    "tests": []
-                };
+            rl[i].on('close', ()=>{
+                console.log(i);
+                //i++;
+                //console.log(features);
+                resolve(features[i]);
             })
-            //console.log(fs.readFileSync(file,'utf8'));
+            })) 
         }
+        
+     i++; 
+     
+     
     })
-
     
 
-    function makeTestEmpty(){
+function makeTestEmpty(){
     tags=[];
     steps=[];
     examples=[];
@@ -90,7 +101,8 @@ function reader(fileList) {
         "examples":examples
     }
 }
- 
+    //console.log(features);
+ return Promise.all(promises);
 }
 
 
