@@ -9,7 +9,7 @@ const fs=require('fs');
 gulp.task('read:features', ()=>{
     let dirname=path.normalize(util.env.path);
     let files=finder(dirname);
-    reader(files).then((features)=>{      
+    reader(files).then((features)=>{
         fs.writeFileSync('features.json',JSON.stringify(features),'utf8');
         console.log('done');
     })
