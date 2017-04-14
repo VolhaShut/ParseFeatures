@@ -6,5 +6,5 @@ response.json
 .vscode
 features.json
 output
-/lib/credentials.json
-/lib/sessionName.json
+lib/credentials.json
+lib/sessionName.json
