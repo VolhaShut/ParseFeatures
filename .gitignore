@@ -5,6 +5,5 @@ response.json
 .npmrc
 .vscode
 features.json
-output
 lib/credentials.json
 lib/sessionName.json
