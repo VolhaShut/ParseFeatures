@@ -7,3 +7,4 @@ response.json
 features.json
 output
 /lib/credentials.json
+/lib/sessionName.json

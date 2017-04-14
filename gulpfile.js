@@ -20,6 +20,9 @@ gulp.task('post:jira', ()=>{
 });
 
 gulp.task('create-session', ()=>{
+    let username=util.env.username;
+    let password=util.env.password;
+    fs.writeFileSync('./lib/credentials.json',JSON.stringify({"username":username, "password":password}),'utf8');
     require('./lib/rest/rest-client');
 });
 
