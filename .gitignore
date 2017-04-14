@@ -6,4 +6,3 @@ response.json
 .vscode
 features.json
 lib/credentials.json
-lib/sessionName.json

@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const util = require('gulp-util');
 const finder=require('./lib/getFiles').finder;
 const reader=require('./lib/readFeatures').reader;
+const jiraTickets=require('./lib/rest/rest_request').getJiraTickets;
 const path=require('path');
 const fs=require('fs');
 
@@ -16,7 +17,29 @@ gulp.task('read:features', ()=>{
 });
 
 gulp.task('post:jira', ()=>{
-    require('./lib/rest/rest_request');
+    let allTickets=[];
+    let totalTests;
+    let pr=[];
+    jiraTickets(0).then((resp)=>{
+        totalTests=resp.totalTests;
+        allTickets.push(resp.response);
+    }).then(()=>{
+        let i=50;
+        console.log(totalTests);
+        while(i<totalTests){
+            console.log("Request start at "+i);
+            pr.push(jiraTickets(i).then((resp)=>{
+                allTickets.push(resp.response);
+            }));
+            i+=50;
+        }
+    }).then(()=>{
+       return Promise.all(pr);
+    }).then(()=>{
+        fs.writeFileSync('./output/response.json',JSON.stringify(allTickets),'utf8');
+        console.log('done!');
+    })
+
 });
 
 gulp.task('create-session', ()=>{
