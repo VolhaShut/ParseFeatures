@@ -1,6 +1,7 @@
 {
   "name": "application-name",
   "version": "0.0.1",
+  "description": "parsing feature from cucumber.js",
   "dependencies": {
     "gulp": "^3.9.1",
     "gulp-util": "^3.0.7",
